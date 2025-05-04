@@ -19,7 +19,7 @@ const CreateTaskApp = (props) => {
 
   return (
     <div className="flex flex-col w-80">
-      <h4 className="text-center">{props.taskTitle}</h4>
+      <h4 className="text-center my-2">{props.taskTitle}</h4>
       <InputApp
         onChange={enteredData}
         value={text}

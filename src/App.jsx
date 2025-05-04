@@ -1,3 +1,4 @@
+import react from "react";
 import useStore from "../store";
 
 import TaskApp from "./components/TaskApp";
@@ -6,6 +7,7 @@ import CreateTaskApp from "./components/CreateTaskApp";
 
 function App() {
   const tasks = useStore((state) => state.tasks);
+  const deleteTasks = useStore((state) => state.removeTasks);
   console.log(tasks);
 
   return (
@@ -20,14 +22,16 @@ function App() {
         <ul>
           {tasks.map((task) => (
             <li key={task.id}>
-              <TaskApp dataTask={task.text} />
+              <TaskApp
+                id={task.id}
+                dataTask={task.text}
+                createdTime={task.created}
+                status={task.completed}
+                deleteTasks={() => deleteTasks(task.id)}
+              />
             </li>
           ))}
         </ul>
-        {/* <TaskApp dataTask="Сomplete all homework" />
-        <TaskApp dataTask="Do all the homework and clean up" />
-        <TaskApp dataTask="Do all the sdfsefse aefsefs uiki, 675675" />
-        <TaskApp /> */}
       </div>
     </div>
   );
