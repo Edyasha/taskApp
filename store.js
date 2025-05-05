@@ -9,7 +9,7 @@ const useStore = create((set) => ({
           tasks: [
             {
               id: v1(),
-              text: task.text,
+              text: task.text.trim(),
               completed: false,
               created: new Date().toLocaleString(),
             },
